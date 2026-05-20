@@ -31,6 +31,10 @@ async def consume_consumer2():
         async for message in iterator:
             async with message.process():
                 event = json.loads(message.body.decode("utf-8"))
+                
+                # Эмуляция продолжительной обработки
+                await asyncio.sleep(0.5)
+
                 race = event["race"]
                 message_count[race] += 1
 

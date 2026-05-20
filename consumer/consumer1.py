@@ -27,6 +27,10 @@ async def consume_consumer1():
         async for message in iterator:
             async with message.process():
                 event = json.loads(message.body.decode("utf-8"))
+
+                # Эмуляция продолжительной обработки
+                await asyncio.sleep(0.5)
+                
                 emoji_map = {"F1": "RACE", "NASCAR": "USA", "LeMans": "FR"}
                 emoji = emoji_map.get(event["race"], "INFO")
                 print(
