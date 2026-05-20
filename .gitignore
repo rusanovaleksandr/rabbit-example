@@ -4,7 +4,7 @@ __pycache__/
 *.pyo
 *.pyd
 *.so
-app/__pychache__/
+app/__pycache__/
 
 # Virtual environments
 .venv/
